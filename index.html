@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Heaven</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div  class="Logo">JAS</div>
+        <h1 class="brand">Pizza Heaven</h1>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="location.html">Locations</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="home" class="section">
+    <div class="container">
+        <h2 class="section-title">Delicious Pizza</h2>
+        <p class="section-description">Experience the taste of our mouth-watering pizzas made with love and fresh ingredients.</p>
+        <a href="#menu" class="btn">View Menu</a>
+    </div>
+</section>
+
+<section id="menu" class="section">
+    <div class="container">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="pizza">
+            <img src="pizza1.jpg" alt="Pizza 1" class="pizza-image">
+            <h3 class="pizza-title">Margherita</h3>
+            <p class="pizza-description">Classic pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
+        </div>
+        <div class="pizza">
+            <img src="pizza2.avif" alt="Pizza 2" class="pizza-image">
+            <h3 class="pizza-title">Pepperoni</h3>
+            <p class="pizza-description">Delicious pizza topped with pepperoni, mozzarella cheese, and tomato sauce.</p>
+        </div>
+        <div class="pizza">
+            <img src="pizza3.webp" alt="Pizza 3" class="pizza-image">
+            <h3 class="pizza-title">Hawaiian</h3>
+            <p class="pizza-description">Aloha! Enjoy our tropical pizza with ham, pineapple, and mozzarella cheese.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-description">We are a family-owned pizzeria dedicated to serving the best pizzas in town. Our recipes have been passed down through generations, ensuring the perfect blend of flavors in every bite.</p>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-description">Have a question or want to place an order? Reach out to us!</p>
+        <form class="contact-form">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+            <label for="message" class="form-label">Message:</label>
+            <textarea id="message" name="message" class="form-textarea" required></textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p class="footer-text">&copy; 2022 Pizza Heaven. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
