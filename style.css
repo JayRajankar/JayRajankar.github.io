@@ -1,46 +1,280 @@
+:root {
+  --primary: #2a2a2a;
+  --secondary: #fff;
+  --accent: #ff9800;
+  --bg: #f2f2f2;
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"] {
+  --primary: #fff;
+  --secondary: #181818;
+  --accent: #03dac6;
+  --bg: #22272e;
+}
+
+[data-theme="colorful"] {
+  --primary: #fff;
+  --secondary: #6a1b9a;
+  --accent: #ff4081;
+  --bg: #ffe082;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--primary);
+  transition: background var(--transition), color var(--transition);
 }
 
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+header, footer {
+  background: var(--secondary);
+  color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1em 0;
 }
 
-form {
-    display: flex;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.logo {
+  font-size: 1.5em;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+}
+
+.nav-links a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color var(--transition);
+}
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.theme-switcher button {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin-left: 0.3em;
+  transition: transform 0.2s;
+}
+.theme-switcher button:hover {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em 1em 1em;
+  animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) both;
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(35px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1em;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
+  border: 4px solid var(--accent);
+  animation: popIn 0.8s 0.3s backwards;
+}
+
+@keyframes popIn {
+  from {transform: scale(0.6);}
+  to {transform: scale(1);}
+}
+
+.cta {
+  display: flex;
+  gap: 1.5em;
+  justify-content: center;
+  padding: 2em 0;
+}
+.cta-button {
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 1.2em;
+  padding: 0.8em 2em;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.cta-button:hover {
+  background: var(--primary);
+  color: var(--accent);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
+}
+
+section {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em;
+  border-radius: 18px;
+  background: var(--secondary);
+  box-shadow: 0 2px 18px rgba(0,0,0,0.04);
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+.project-card {
+  flex: 1 1 220px;
+  background: var(--bg);
+  padding: 1.2em;
+  border-radius: 14px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  transition: transform var(--transition);
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.about-img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  margin-top: 1.5em;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.contact-form label {
+  font-weight: bold;
+}
+.contact-form input, .contact-form textarea {
+  padding: 0.7em;
+  border-radius: 6px;
+  border: 1.5px solid var(--accent);
+  font-size: 1em;
+}
+.contact-form button {
+  margin-top: 1em;
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 40px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.contact-form button:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+.pizza-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+.pizza-card {
+  background: var(--bg);
+  padding: 1.2em;
+  border-radius: 14px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  flex: 1 1 220px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition);
+  animation: fadeInUp 0.6s ease both;
+}
+.pizza-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+}
+.pizza-card button {
+  margin-top: 1em;
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  padding: 0.7em 1.5em;
+  border-radius: 22px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.pizza-card button:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+.cart {
+  margin-top: 2em;
+  background: var(--bg);
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+}
+.cart ul {
+  padding-left: 1.2em;
+}
+.checkout-btn {
+  margin-top: 1em;
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  padding: 0.6em 1.5em;
+  border-radius: 22px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.checkout-btn:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  margin-top: 2em;
+  color: var(--primary);
+}
+
+@media (max-width: 800px) {
+  .navbar, .project-list, .pizza-list {
     flex-direction: column;
-}
-
-label {
-    margin-bottom: 8px;
-}
-
-input {
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
+    align-items: stretch;
+    gap: 0.7em;
+  }
+  section {
+    padding: 1em;
+  }
 }
