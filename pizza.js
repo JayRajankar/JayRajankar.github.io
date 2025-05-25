@@ -1,18 +1,21 @@
 const pizzas = [
   {
     name: "Margherita",
-    image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=400&q=80",
-    price: 8
+    image: "pizza2.avif",
+    price: 8,
+    description: "Classic tomato, mozzarella, and basil."
   },
   {
     name: "Pepperoni",
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
-    price: 10
+    image: "pizza3.webp",
+    price: 10,
+    description: "Spicy pepperoni with rich tomato sauce."
   },
   {
     name: "Veggie Delight",
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
-    price: 9
+    price: 9,
+    description: "Fresh vegetables with a creamy cheese blend."
   }
 ];
 
@@ -20,6 +23,12 @@ let cart = [];
 
 function addToCart(index) {
   cart.push(pizzas[index]);
+  renderCart();
+  showNotification(`${pizzas[index].name} added to cart!`);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
   renderCart();
 }
 
@@ -31,8 +40,9 @@ function renderPizzas() {
     const card = document.createElement('div');
     card.className = 'pizza-card';
     card.innerHTML = `
-      <img src="${pizza.image}" alt="${pizza.name}">
+      <img src="${pizza.image}" alt="${pizza.name}" loading="lazy">
       <h3>${pizza.name}</h3>
+      <p>${pizza.description}</p>
       <p>$${pizza.price}</p>
       <button onclick="addToCart(${i})">Add to Cart</button>
     `;
@@ -48,27 +58,40 @@ function renderCart() {
   let sum = 0;
   cart.forEach((pizza, i) => {
     const li = document.createElement('li');
-    li.innerText = `${pizza.name} - $${pizza.price}`;
+    li.innerHTML = `
+      ${pizza.name} - $${pizza.price}
+      <button onclick="removeFromCart(${i})" class="remove-btn">Remove</button>
+    `;
     items.appendChild(li);
     sum += pizza.price;
   });
-  total.innerText = `Total: $${sum}`;
+  total.innerText = `Total: $${sum.toFixed(2)}`;
 }
 
 function checkout() {
   if (cart.length === 0) {
-    alert("Your cart is empty!");
+    showNotification("Your cart is empty!", true);
     return;
   }
-  alert("Thank you for your order! (Demo only)");
+  showNotification("Thank you for your order!");
   cart = [];
   renderCart();
+}
+
+function showNotification(message, isError = false) {
+  const notification = document.createElement('div');
+  notification.className = `notification ${isError ? 'error' : ''}`;
+  notification.innerText = message;
+  document.body.appendChild(notification);
+  setTimeout(() => {
+    notification.style.opacity = '0';
+    setTimeout(() => notification.remove(), 300);
+  }, 2000);
 }
 
 window.onload = function() {
   renderPizzas();
   renderCart();
-  // Theme restore
   const saved = localStorage.getItem('theme');
   if (saved) setTheme(saved);
-}
+};
