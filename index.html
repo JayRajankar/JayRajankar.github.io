@@ -1,97 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pizza Heaven</title>
-  <link rel="stylesheet" href="index.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jay Rajankar | Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="theme.js"></script>
+  <script defer src="pizza.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="container nav-container">
-      <div class="logo"><i class="fas fa-pizza-slice"></i> Pizza Heaven</div>
-      <nav class="navigation">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#menu" class="nav-link">Menu</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="location.html" class="nav-link">Locations</a>
-      </nav>
-    </div>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Jay Rajankar</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="pizza.html">Pizza Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="theme-switcher">
+        <button onclick="setTheme('light')" aria-label="Light Theme">🌞</button>
+        <button onclick="setTheme('dark')" aria-label="Dark Theme">🌚</button>
+        <button onclick="setTheme('colorful')" aria-label="Colorful Theme">🌈</button>
+      </div>
+    </nav>
   </header>
-
-  <section id="home" class="hero-section">
-    <div class="container hero-content">
-      <h1 class="hero-title">Delicious, Authentic Pizza</h1>
-      <p class="hero-subtitle">Experience the perfect blend of flavors at Pizza Heaven. Fresh ingredients, family recipes, and a passion for pizza.</p>
-      <a href="#menu" class="btn btn-primary">View Menu</a>
-    </div>
-  </section>
-
-  <section id="menu" class="section">
-    <div class="container">
-      <h2 class="section-title">Our Menu</h2>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <img src="pizza1.jpg" alt="Margherita" class="menu-img" />
-          <h3 class="menu-name">Margherita</h3>
-          <p class="menu-desc">Classic tomato sauce, mozzarella, and fresh basil.</p>
-        </div>
-        <div class="menu-card">
-          <img src="pizza2.avif" alt="Pepperoni" class="menu-img" />
-          <h3 class="menu-name">Pepperoni</h3>
-          <p class="menu-desc">Pepperoni, mozzarella, and rich tomato sauce.</p>
-        </div>
-        <div class="menu-card">
-          <img src="pizza3.webp" alt="Hawaiian" class="menu-img" />
-          <h3 class="menu-name">Hawaiian</h3>
-          <p class="menu-desc">Ham, pineapple, mozzarella, and tomato sauce.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">About Us</h2>
-      <p class="section-desc">
-        We are a family-owned pizzeria dedicated to serving the finest pizzas in town. Our passion is using the freshest ingredients and time-honored recipes to ensure every bite is unforgettable.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container contact-container">
-      <h2 class="section-title">Contact Us</h2>
-      <form class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-secondary">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>&copy; 2025 Pizza Heaven. All rights reserved.</div>
-      <div class="footer-social">
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Jay Rajankar's Portfolio</h1>
+      <p>Developer. Designer. Pizza Enthusiast.</p>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=600&q=80" alt="Jay's Portrait" class="profile-img" />
+    </section>
+    <section class="cta">
+      <a href="projects.html" class="cta-button">See My Work</a>
+      <a href="pizza.html" class="cta-button">Order Pizza 🍕</a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Jay Rajankar</p>
   </footer>
 </body>
 </html>
