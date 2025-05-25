@@ -1,280 +1,317 @@
 :root {
-  --primary: #2a2a2a;
-  --secondary: #fff;
-  --accent: #ff9800;
-  --bg: #f2f2f2;
-  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --primary: #ff4500;
+  --secondary: #1a1a1a;
+  --background: #f9fafb;
+  --foreground: #ffffff;
+  --text: #1f2937;
+  --accent: #f59e0b;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 [data-theme="dark"] {
-  --primary: #fff;
-  --secondary: #181818;
-  --accent: #03dac6;
-  --bg: #22272e;
+  --primary: #f59e0b;
+  --secondary: #111827;
+  --background: #1f2937;
+  --foreground: #1a1a1a;
+  --text: #e5e7eb;
+  --accent: #ff4500;
 }
 
 [data-theme="colorful"] {
-  --primary: #fff;
-  --secondary: #6a1b9a;
-  --accent: #ff4081;
-  --bg: #ffe082;
+  --primary: #ffffff;
+  --secondary: #7c3aed;
+  --background: #fef3c7;
+  --foreground: #ffffff;
+  --text: #1f2937;
+  --accent: #ec4899;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--bg);
-  color: var(--primary);
-  transition: background var(--transition), color var(--transition);
+  font-family: var(--font);
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  transition: var(--transition);
 }
 
-header, footer {
-  background: var(--secondary);
-  color: var(--primary);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  padding: 1em 0;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  background: var(--foreground);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1em;
+  gap: 1rem;
 }
 
 .logo {
-  font-size: 1.5em;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color var(--transition);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 2rem;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5em;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links a {
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 1.1em;
-  transition: color var(--transition);
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: var(--transition);
 }
-.nav-links a:hover {
-  color: var(--accent);
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--primary);
+  color: var(--foreground);
 }
 
 .theme-switcher button {
   background: none;
   border: none;
-  font-size: 1.3em;
+  font-size: 1.5rem;
   cursor: pointer;
-  margin-left: 0.3em;
-  transition: transform 0.2s;
+  transition: var(--transition);
 }
+
 .theme-switcher button:hover {
-  transform: scale(1.15) rotate(-5deg);
+  transform: scale(1.2) rotate(-5deg);
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3em 1em 1em;
-  animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) both;
+.hero-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: var(--foreground);
+  text-align: center;
+  padding: 5rem 0;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(35px);}
-  to {opacity: 1; transform: translateY(0);}
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 1s ease;
 }
 
-.profile-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 1em;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
-  border: 4px solid var(--accent);
-  animation: popIn 0.8s 0.3s backwards;
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
 }
 
-@keyframes popIn {
-  from {transform: scale(0.6);}
-  to {transform: scale(1);}
-}
-
-.cta {
-  display: flex;
-  gap: 1.5em;
-  justify-content: center;
-  padding: 2em 0;
-}
-.cta-button {
-  background: var(--accent);
-  color: var(--primary);
-  font-size: 1.2em;
-  padding: 0.8em 2em;
-  border-radius: 40px;
-  text-decoration: none;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  transition: background var(--transition), box-shadow var(--transition);
-}
-.cta-button:hover {
+.btn {
+  display: inline-block;
   background: var(--primary);
-  color: var(--accent);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
+  color: var(--foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
 }
 
-section {
-  max-width: 900px;
-  margin: 2em auto;
-  padding: 2em;
-  border-radius: 18px;
+.btn:hover {
   background: var(--secondary);
-  box-shadow: 0 2px 18px rgba(0,0,0,0.04);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
-}
-.project-card {
-  flex: 1 1 220px;
-  background: var(--bg);
-  padding: 1.2em;
-  border-radius: 14px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
-  transition: transform var(--transition);
-}
-.project-card:hover {
-  transform: translateY(-8px) scale(1.03);
+.section {
+  padding: 4rem 0;
 }
 
-.about-img {
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.menu-grid, .pizza-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-card, .pizza-card {
+  background: var(--foreground);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.menu-card:hover, .pizza-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.menu-img, .pizza-card img {
   width: 100%;
-  max-width: 320px;
-  border-radius: 12px;
-  margin-top: 1.5em;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+  max-width: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.menu-name, .pizza-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.menu-desc, .pizza-card p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.cart {
+  background: var(--foreground);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-top: 2rem;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.cart li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary);
+  color: var(--foreground);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.checkout-btn:hover {
+  background: var(--secondary);
+  color: var(--primary);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--foreground);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
+
 .contact-form label {
-  font-weight: bold;
-}
-.contact-form input, .contact-form textarea {
-  padding: 0.7em;
-  border-radius: 6px;
-  border: 1.5px solid var(--accent);
-  font-size: 1em;
-}
-.contact-form button {
-  margin-top: 1em;
-  background: var(--accent);
-  color: var(--primary);
-  border: none;
-  padding: 0.8em 2em;
-  border-radius: 40px;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background var(--transition);
-}
-.contact-form button:hover {
-  background: var(--primary);
-  color: var(--accent);
+  font-weight: 600;
 }
 
-.pizza-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
-}
-.pizza-card {
-  background: var(--bg);
-  padding: 1.2em;
-  border-radius: 14px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
-  flex: 1 1 220px;
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform var(--transition);
-  animation: fadeInUp 0.6s ease both;
-}
-.pizza-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 1em;
-  object-fit: cover;
-  border: 3px solid var(--accent);
-}
-.pizza-card button {
-  margin-top: 1em;
-  background: var(--accent);
-  color: var(--primary);
-  border: none;
-  padding: 0.7em 1.5em;
-  border-radius: 22px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background var(--transition);
-}
-.pizza-card button:hover {
-  background: var(--primary);
-  color: var(--accent);
-}
-.cart {
-  margin-top: 2em;
-  background: var(--bg);
-  padding: 1.5em;
-  border-radius: 12px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
-}
-.cart ul {
-  padding-left: 1.2em;
-}
-.checkout-btn {
-  margin-top: 1em;
-  background: var(--accent);
-  color: var(--primary);
-  border: none;
-  padding: 0.6em 1.5em;
-  border-radius: 22px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background var(--transition);
-}
-.checkout-btn:hover {
-  background: var(--primary);
-  color: var(--accent);
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: var(--transition);
 }
 
-footer {
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+}
+
+.footer {
+  background: var(--secondary);
+  color: var(--foreground);
+  padding: 2rem 0;
   text-align: center;
-  margin-top: 2em;
-  color: var(--primary);
 }
 
-@media (max-width: 800px) {
-  .navbar, .project-list, .pizza-list {
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-social a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .navbar, .footer-content {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.7em;
+    gap: 1rem;
   }
-  section {
-    padding: 1em;
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .menu-grid, .pizza-list {
+    grid-template-columns: 1fr;
   }
 }
