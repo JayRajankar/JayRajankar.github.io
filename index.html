@@ -4,41 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jay Rajankar | Home</title>
-<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="theme.js"></script>
   <script defer src="pizza.js"></script>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">Jay Rajankar</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="pizza.html">Pizza Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="theme-switcher">
-        <button onclick="setTheme('light')" aria-label="Light Theme">🌞</button>
-        <button onclick="setTheme('dark')" aria-label="Dark Theme">🌚</button>
-        <button onclick="setTheme('colorful')" aria-label="Colorful Theme">🌈</button>
-      </div>
-    </nav>
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="Logo.webp" alt="Logo"> Jay Rajankar
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="pizza.html" class="nav-link">Pizza Menu</a></li>
+          <li><a href="location.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="theme-switcher">
+          <button onclick="setTheme('light')" aria-label="Light Theme">🌞</button>
+          <button onclick="setTheme('dark')" aria-label="Dark Theme">🌚</button>
+          <button onclick="setTheme('colorful')" aria-label="Colorful Theme">🌈</button>
+        </div>
+      </nav>
+    </div>
   </header>
   <main>
-    <section class="hero">
-      <h1>Welcome to Jay Rajankar's Portfolio</h1>
-      <p>Developer. Designer. Pizza Enthusiast.</p>
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=600&q=80" alt="Jay's Portrait" class="profile-img" />
-    </section>
-    <section class="cta">
-      <a href="projects.html" class="cta-button">See My Work</a>
-      <a href="pizza.html" class="cta-button">Order Pizza 🍕</a>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Welcome to Jay Rajankar's Portfolio</h1>
+        <p class="hero-subtitle">Developer. Designer. Pizza Enthusiast.</p>
+        <div>
+          <a href="projects.html" class="btn">See My Work</a>
+          <a href="pizza.html" class="btn">Order Pizza 🍕</a>
+        </div>
+      </div>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 Jay Rajankar</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2025 Jay Rajankar</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="GitHub">🖥️</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
